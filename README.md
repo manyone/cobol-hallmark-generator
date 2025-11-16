@@ -4,7 +4,7 @@
 
 > Generate heartwarming, formulaic Hallmark-style movie plots for Christmas and Thanksgiving — with customizable characters, settings, and endings!
 
-![Christmas Story Generator Snapshot](path/to/your/snapshot.jpg)  
+![Christmas Story Generator Snapshot](hallmark.png)  
 *Figure: The Christmas story generator data structure and plot template.*
 
 ---
@@ -397,3 +397,4 @@ a Christmas tree singing a Christmas carol and the camera pulls back to show the
 
 ---
 ```
+
