@@ -1,0 +1,6 @@
+PROC 1 &THEME                                                          
+ALLOC FILE(VARS) DA('HERC02.HM.&THEME..VARS.DAT') SHR                    
+ALLOC FILE(PLOT) DA('HERC02.HM.&THEME..PLOT.DAT') SHR                     
+ALLOC FILE(SYSOUT) DA(*)                                               
+ALLOC FILE(SYSIN) DA(*)                                                
+CALL 'HERC02.RUN.LOAD(HALLMARK)'                                        
