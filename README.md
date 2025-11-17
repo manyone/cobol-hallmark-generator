@@ -5,7 +5,7 @@
 
 > Generate heartwarming, formulaic Hallmark-style movie plots for Christmas and Thanksgiving — with customizable characters, settings, and endings!
 
-![Christmas Story Generator Snapshot](path/to/your/snapshot.jpg)  
+![Christmas Story Generator Snapshot](hallmark.png)  
 *Figure: The Christmas story generator data structure and plot template.*
 
 > A Tale of Two Technologies: In a delightful twist of fate, this COBOL program has a digital twin. While the original runs on vintage MVS systems or modern GnuCOBOL, its spirit lives on in a completely different era: a web app. Explore the same Hallmark magic—same plots, same variables—at https://sites.google.com/view/manyone/home/programs/hallmark_plotgen . It’s the ultimate clash of tech epochs: punch cards meet push notifications, JCL meets JavaScript. One runs in a terminal; the other in your browser. Both are equally cheesy. Enjoy the irony!
