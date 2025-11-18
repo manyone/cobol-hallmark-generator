@@ -21,7 +21,7 @@
 7. [Sample Execution (PC/GNU COBOL)](#7-sample-execution-pcgnu-cobol)
 8. [Customizing Stories](#8-customizing-stories)
 9. [Legacy COBOL 74 Version (TK4)](#9-legacy-cobol-74-version-tk4)
-10. [Sample Execution (TK4)](#10-10-sample-execution-tk4)
+10. [Sample Execution (TK4)](#10-sample-execution-tk4)
 11. [Technical Notes](#11-technical-notes)
 12. [Contributing / Feedback](#12-contributing--feedback)
 
@@ -399,4 +399,5 @@ a Christmas tree singing a Christmas carol and the camera pulls back to show the
 
 ---
 ```
+
 
