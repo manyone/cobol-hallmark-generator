@@ -12,18 +12,18 @@
 ---
 
 ## 📌 Table of Contents
-1. [Overview](#overview)
-2. [Features](#features)
-3. [System Requirements](#system-requirements)
-4. [Installation & Compilation](#installation--compilation)
-5. [Data Structure & File Layout](#data-structure--file-layout)
-6. [How to Run (PC/GNU COBOL)](#how-to-run-pcgnu-cobol)
-7. [Sample Execution (PC/GNU COBOL)](#sample-execution-pcgnu-cobol)
-8. [Customizing Stories](#customizing-stories)
-9. [Legacy COBOL 74 Version (TK4)](#legacy-cobol-74-version-tk4)
-10. [Sample Execution (TK4)](#sample-execution-tk4)
+1. [Overview](#1-overview)
+2. [Features](#2-features)
+3. [System Requirements](#3-system-requirements)
+4. [Installation & Compilation](#4-installation--compilation)
+5. [Data Structure & File Layout](#5-data-structure--file-layout)
+6. [How to Run (PC/GNU COBOL)](#6-how-to-run-pcgnu-cobol)
+7. [Sample Execution (PC/GNU COBOL)](#7-sample-execution-pcgnu-cobol)
+8. [Customizing Stories](#8-customizing-stories)
+9. [Legacy COBOL 74 Version (TK4)](#9-legacy-cobol-74-version-tk4)
+10. [Sample Execution (TK4)](#10-11-sample-execution-tk4)
 11. [Technical Notes](#technical-notes)
-12. [Contributing / Feedback](#contributing--feedback)
+12. [Contributing / Feedback](#12-contributing--feedback)
 
 ---
 
@@ -399,4 +399,3 @@ a Christmas tree singing a Christmas carol and the camera pulls back to show the
 
 ---
 ```
-
