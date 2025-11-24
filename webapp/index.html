@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallmark Movie Plot Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f9f0ff 0%, #e6f7ff 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e63946;
+        }
+        
+        h1 {
+            color: #e63946;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            color: #457b9d;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #1d3557;
+        }
+        
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #a8dadc;
+            border-radius: 5px;
+            background-color: #f1faee;
+            font-size: 1rem;
+            color: #1d3557;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        #generateBtn {
+            background-color: #e63946;
+            color: white;
+        }
+        
+        #randomizeBtn {
+            background-color: #457b9d;
+            color: white;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        #generateBtn:hover {
+            background-color: #d62839;
+        }
+        
+        #randomizeBtn:hover {
+            background-color: #1d3557;
+        }
+        
+        .plot-container {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f1faee;
+            border-radius: 10px;
+            border-left: 5px solid #e63946;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #1d3557;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        #plotOutput {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            color: #1d3557;
+        }
+        
+        .decoration {
+            position: absolute;
+            z-index: 0;
+        }
+        
+        .snowflake {
+            position: absolute;
+            color: #a8dadc;
+            font-size: 1.5rem;
+            user-select: none;
+            z-index: 0;
+        }
+        
+        .ornament {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #e63946, #d62839);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #457b9d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative elements -->
+    <div id="decorations"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Hallmark Movie Plot Generator</h1>
+            <p class="subtitle">Create your own heartwarming holiday story</p>
+        </header>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="female_1">Female Lead's Profession</label>
+                <select id="female_1">
+                    <option value="Architect">Architect</option>
+                    <option value="Baker">Baker</option>
+                    <option value="Veterinarian">Veterinarian</option>
+                    <option value="Art Teacher">Art Teacher</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="setting">Setting</label>
+                <select id="setting">
+                    <option value="small coastal town">Small Coastal Town</option>
+                    <option value="mountain village">Mountain Village</option>
+                    <option value="rural farming community">Rural Farming Community</option>
+                    <option value="historic downtown district">Historic Downtown District</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="decision">Her Mission</label>
+                <select id="decision">
+                    <option value="restore the old community center">Restore the Old Community Center</option>
+                    <option value="organize the annual festival">Organize the Annual Festival</option>
+                    <option value="save the local business">Save the Local Business</option>
+                    <option value="reconnect with her roots">Reconnect With Her Roots</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="male_1">Fiancé's Profession</label>
+                <select id="male_1">
+                    <option value="Corporate Executive">Corporate Executive</option>
+                    <option value="Successful Attorney">Successful Attorney</option>
+                    <option value="Real Estate Developer">Real Estate Developer</option>
+                    <option value="Tech Entrepreneur">Tech Entrepreneur</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="male_2">Love Interest's Profession</label>
+                <select id="male_2">
+                    <option value="Local Contractor">Local Contractor</option>
+                    <option value="Elementary School Principal">Elementary School Principal</option>
+                    <option value="Marine Biologist">Marine Biologist</option>
+                    <option value="Historian">Historian</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="helper">Helper</label>
+                <select id="helper">
+                    <option value="Town Elder">Town Elder</option>
+                    <option value="Former Teacher">Former Teacher</option>
+                    <option value="Local Librarian">Local Librarian</option>
+                    <option value="Community Volunteer">Community Volunteer</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="miracle">Christmas Miracle</label>
+                <select id="miracle">
+                    <option value="the community center is saved by unexpected donations">Community Center Saved by Donations</option>
+                    <option value="an old deed is discovered proving the land cannot be sold">Old Deed Discovered</option>
+                    <option value="the perfect buyer emerges to preserve the business">Perfect Buyer Emerges</option>
+                    <option value="a historical landmark designation is approved">Historical Landmark Designation</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="ending">Ending Scene</label>
+                <select id="ending">
+                    <option value="the camera pulls back to show the glowing town square">Glowing Town Square</option>
+                    <option value="the couple walks hand-in-hand down the decorated street">Couple Walking Hand-in-Hand</option>
+                    <option value="the townspeople gather for a celebration in the restored building">Townspeople Celebration</option>
+                    <option value="snow begins to fall as carolers sing beneath the landmark">Snowfall with Carolers</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="place">Special Place</label>
+                <select id="place">
+                    <option value="community center">Community Center</option>
+                    <option value="bookstore">Bookstore</option>
+                    <option value="bakery">Bakery</option>
+                    <option value="old theater">Old Theater</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button id="generateBtn">Generate Plot</button>
+            <button id="randomizeBtn">Randomize All</button>
+        </div>
+        
+        <div class="plot-container">
+            <h2>Your Hallmark Movie Plot</h2>
+            <div id="plotOutput">
+                Select your options and click "Generate Plot" to create your story!
+            </div>
+        </div>
+        
+        <footer>
+            <p>Made with ❄️ Holiday Spirit ❄️</p>
+        </footer>
+    </div>
+
+    <script>
+        // Data structure
+        const movieData = {
+            "variables": {
+                "female_1": ["Architect", "Baker", "Veterinarian", "Art Teacher"],
+                "setting": ["small coastal town", "mountain village", "rural farming community", "historic downtown district"],
+                "decision": ["restore the old community center", "organize the annual festival", "save the local business", "reconnect with her roots"],
+                "male_1": ["Corporate Executive", "Successful Attorney", "Real Estate Developer", "Tech Entrepreneur"],
+                "male_2": ["Local Contractor", "Elementary School Principal", "Marine Biologist", "Historian"],
+                "helper": ["Town Elder", "Former Teacher", "Local Librarian", "Community Volunteer"],
+                "miracle": ["the community center is saved by unexpected donations", "an old deed is discovered proving the land cannot be sold", "the perfect buyer emerges to preserve the business", "a historical landmark designation is approved"],
+                "ending": ["the camera pulls back to show the glowing town square", "the couple walks hand-in-hand down the decorated street", "the townspeople gather for a celebration in the restored building", "snow begins to fall as carolers sing beneath the landmark"],
+                "place": ["community center", "bookstore", "bakery", "old theater"]
+            },
+            "plot": "A dedicated <female_1> decides to <decision> in <setting>. There she meets <male_2> and initially finds him charming but unremarkable. Unbeknownst to her, her current fiance, <male_1>, has been secretly planning to shut down the <place>, a place dear to her heart. With the help of <helper>, she discovers his true intentions and decides to break off the engagement. After the breakup, she started noticing <male_2> - his quiet strength, his care for the <place>. Working side by side to save it, she realized she was falling for him. At the end of the movie, it's a Christmas miracle when <miracle>. The movie ends with the lovers sitting around a Christmas tree singing a Christmas carol and <ending>."
+        };
+
+        // DOM elements
+        const generateBtn = document.getElementById('generateBtn');
+        const randomizeBtn = document.getElementById('randomizeBtn');
+        const plotOutput = document.getElementById('plotOutput');
+        
+        // Generate plot function
+        function generatePlot() {
+            let plot = movieData.plot;
+            
+            // Replace all variables in the plot
+            for (const variable in movieData.variables) {
+                const selectElement = document.getElementById(variable);
+                const selectedValue = selectElement.value;
+                const regex = new RegExp(`<${variable}>`, 'g');
+                plot = plot.replace(regex, selectedValue);
+            }
+            
+            plotOutput.innerHTML = plot;
+        }
+        
+        // Randomize all selections
+        function randomizeAll() {
+            for (const variable in movieData.variables) {
+                const selectElement = document.getElementById(variable);
+                const options = movieData.variables[variable];
+                const randomIndex = Math.floor(Math.random() * options.length);
+                selectElement.value = options[randomIndex];
+            }
+            
+            generatePlot();
+        }
+        
+        // Add decorative elements
+        function addDecorations() {
+            const decorationsContainer = document.getElementById('decorations');
+            const numSnowflakes = 20;
+            const numOrnaments = 15;
+            
+            // Add snowflakes
+            for (let i = 0; i < numSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = `${Math.random() * 100}%`;
+                snowflake.style.top = `${Math.random() * 100}%`;
+                snowflake.style.opacity = `${0.3 + Math.random() * 0.7}`;
+                snowflake.style.fontSize = `${1 + Math.random() * 1.5}rem`;
+                decorationsContainer.appendChild(snowflake);
+            }
+            
+            // Add ornaments
+            for (let i = 0; i < numOrnaments; i++) {
+                const ornament = document.createElement('div');
+                ornament.className = 'ornament';
+                ornament.style.left = `${Math.random() * 100}%`;
+                ornament.style.top = `${Math.random() * 100}%`;
+                ornament.style.width = `${10 + Math.random() * 15}px`;
+                ornament.style.height = ornament.style.width;
+                
+                // Random colors
+                const colors = [
+                    'radial-gradient(circle at 30% 30%, #e63946, #d62839)',
+                    'radial-gradient(circle at 30% 30%, #457b9d, #1d3557)',
+                    'radial-gradient(circle at 30% 30%, #a8dadc, #457b9d)',
+                    'radial-gradient(circle at 30% 30%, #f1faee, #a8dadc)'
+                ];
+                ornament.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                decorationsContainer.appendChild(ornament);
+            }
+        }
+        
+        // Event listeners
+        generateBtn.addEventListener('click', generatePlot);
+        randomizeBtn.addEventListener('click', randomizeAll);
+        
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            addDecorations();
+            generatePlot(); // Generate initial plot
+        });
+    </script>
+</body>
+</html>
