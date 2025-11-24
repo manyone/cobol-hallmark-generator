@@ -8,7 +8,7 @@
 ![Christmas Story Generator Snapshot](hallmark.png)  
 *Figure: The Christmas story generator data structure and plot template.*
 
-> **A Tale of Two Technologies**: In a delightful twist of fate, this COBOL program has a digital twin. While the original runs on vintage MVS systems or modern GnuCOBOL, its spirit lives on in a completely different era: a web app. Explore the same Hallmark magic—same plots, same variables—at https://sites.google.com/view/manyone/home/programs/hallmark_plotgen . It’s the ultimate clash of tech epochs: punch cards meet push notifications, JCL meets JavaScript. One runs in a terminal; the other in your browser. Both are equally cheesy. Enjoy the irony!
+> **A Tale of Two Technologies**: In a delightful twist of fate, this COBOL program has a digital twin. While the original runs on vintage MVS systems or modern GnuCOBOL, its spirit lives on in a completely different era: a web app. Explore the same Hallmark magic—same plots, same variables—at this [web-app version](https://manyone.github.io/cobol-hallmark-generator/webapp/) . It’s the ultimate clash of tech epochs: punch cards meet push notifications, JCL meets JavaScript. One runs in a terminal; the other in your browser. Both are equally cheesy. Enjoy the irony!
 ---
 
 ## 📌 Table of Contents
@@ -399,5 +399,6 @@ a Christmas tree singing a Christmas carol and the camera pulls back to show the
 
 ---
 ```
+
 
 
